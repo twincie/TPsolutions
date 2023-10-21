@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #0078d4;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .admin-dashboard {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .service-list {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .service-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #e3e3e3;
+            border-radius: 5px;
+        }
+
+        .service-status {
+            font-weight: bold;
+        }
+
+        .status-select {
+            margin-right: 10px;
+        }
+
+        .btn {
+            background-color: #0078d4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Admin Page</h1>
+        </div>
+        <div class="admin-dashboard">
+            <h2>Service Requests</h2>
+            <div class="service-list">
+                <!-- Admin can update service statuses here -->
+                <div class="service-item">
+                    <% users.forEach(user => { %>
+                        <p>-----------------------------------------</p>
+                        <p><%= user.fullname %></p>
+                        <p><%= user.email %></p>
+                        <p><%= user.phone %></p>
+                        <p><%= user.username %></p>
+                        <% if (user.service > 0) { %>
+                            <% user.service.forEach(service => { %>
+                                <p>Requested Service: <%= service.service %></p>
+                                <p>Project Topic: <%= service.title %></p>
+                                <p>Service price: <%= service.service %></p>
+                                <p>status:
+                                <select id="status" name="status">
+                                    <option value="Initiated">Initiated</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Finished">Finished</option>
+                                </select>
+                                </p>
+                                <button class="btn update-status">Update Status</button> <br>
+                            <% }) %>
+                        <% } else { %>
+                            <p>No Services Here</p>
+                        <% } %>
+                        <p>-----------------------------------------</p>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

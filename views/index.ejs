@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Service Request Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #0078d4;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .service-form {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .input-group {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            /* display: block; */
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .service-request-list {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .service-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #e3e3e3;
+            border-radius: 5px;
+        }
+
+        .service-status {
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #0078d4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Service Request Dashboard</h1>
+        </div>
+        <div class="dashboard">
+            <h2>Request a Service</h2>
+            <div class="service-form">
+                <form action="/services" method="post">
+                    <label for="service">Select a Service:</label>
+                    <select id="service" name="service">
+                        <% services.forEach(service => { %>
+                            <option value="<%= service.service %>"><%= service.service %></option>
+                        <% }); %>
+                    </select>
+                    <div class="input-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    <button id="requestService" class="btn">Request Service</button>
+                </form>
+            </div>
+            <h2>Service Requests</h2>
+            <div class="service-request-list">
+                <% if (serve.length > 0) { %>
+                    <% serve.forEach(server => { %>
+                        <p>Requested Service: <%= server.service %></p>
+                        <p>project topic: <%= server.title %></p>
+                        <p>Service Price: <%= server.price %></p>
+                        <p class="service-status">Status: <%= server.status %> </p>
+                        <br>
+                    <% }); %>
+                <% } else { %>
+                    <p>no content</p>
+                <% }; %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

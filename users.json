@@ -1,0 +1,35 @@
+[
+  {
+    "id": "59f5467d-7413-4d53-b587-a93d2a6df155",
+    "fullname": "Johnson Oyebode",
+    "email": "oyebodej2@gmail.com",
+    "phone": "08114962848",
+    "username": "twincie",
+    "password": "$2b$10$m1Srchv/qitzRAD4oJ01q.FXDkKn8Y5R.N8S9FthjXoIlyM0svtIy",
+    "service": [
+      {
+        "id": "9a120216-8629-49ec-80e3-ef15bc0b8718",
+        "service": "Proposal Writing",
+        "title": "welish of a well designed program ",
+        "price": "₦10,000",
+        "status": "just initiated"
+      },
+      {
+        "id": "5adba0ce-6c5a-4ce8-94e1-40fed81458d8",
+        "service": "Proposal Writing",
+        "title": "ppal",
+        "price": "₦10,000",
+        "status": "just initiated"
+      }
+    ]
+  },
+  {
+    "id": "66537b26-e937-43ec-a58e-65d8748a096a",
+    "fullname": "admin admin",
+    "email": "admin@admin.com",
+    "phone": "1234567890",
+    "username": "admin",
+    "password": "$2b$10$kYZnHYtENkBKwroYqIgVbOJQKP8Hu0XvKucjcX5UWrQQ6N5.Q20a.",
+    "service": []
+  }
+]
